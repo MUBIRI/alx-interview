@@ -1,11 +1,13 @@
 #!/usr/bin/node
-
+//Star Wars API
 const request = require('request');
 const urlMovie = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+//make a request to the Star Wars API
+
 
 request(urlMovie, async function (error, response, body) {
   const arr = [];
-
+//calling the arg urlmovie
   if (error) {
     console.log(error);
   } else {
@@ -20,7 +22,7 @@ request(urlMovie, async function (error, response, body) {
   actors = actors.map((actor) => JSON.parse(actor).name);
   actors.forEach((actor) => console.log(actor));
 });
-
+///mapping over the results
 function myCharacter (thisCharacter) {
   return new Promise((resolve, reject) => {
     request(thisCharacter, function (error, response, body) {
